@@ -1,6 +1,6 @@
 {
     "name": "MR Formatter for Slack",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "description": "Generate the MR link for Slack",
     "manifest_version": 3,
     "background": {
@@ -20,5 +20,11 @@
         "matches": ["https://gitlab.dev.cit.io/*"],
         "js": ["./js/fontawesome.js", "./js/jquery.js", "./js/mr-formatter.js"]
       }
-    ]
+    ],
+    "icons": {
+      "16": "img/icon16.png",
+      "32": "img/icon32.png",
+      "48": "img/icon48.png",
+      "128": "img/icon128.png"
+    }
   }

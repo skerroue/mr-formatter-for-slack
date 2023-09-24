@@ -9,6 +9,7 @@ async function loadData (){
 
         // Getting emoji
         let emoji = data.emoji
+        if(['undefined', undefined].includes(emoji)) emoji = ":sparkles:";
 
         // Adding the emoji to the form
         emojiForm.value = emoji;
@@ -18,6 +19,7 @@ async function loadData (){
 
         // Getting default tag
         let defaultTag = data.default_tag
+        if(['undefined', undefined].includes(defaultTag)) defaultTag = "@front-reviewer";
 
         // Adding the emoji to the form
         defaultTagForm.value = defaultTag;

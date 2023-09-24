@@ -1,3 +1,10 @@
+# 1.2.2
+[Misc]
+* Add icons for the extension
+
+[Bugfix]
+* When installing the extension, the data was `undefined` by default
+
 # 1.2.1
 [Misc]
 * Adding emoji easter egg
