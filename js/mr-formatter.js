@@ -6,9 +6,11 @@ let defaultTag;
 async function loadData (){
   await chrome.storage.local.get(["emoji"]).then((data) => {
     emoji = data.emoji;
+    if(['undefined', undefined].includes(emoji)) emoji = ":sparkles:";
   });
   await chrome.storage.local.get(["default_tag"]).then((data) => {
     defaultTag = data.default_tag;
+    if(['undefined', undefined].includes(defaultTag)) defaultTag = "@front-reviewer";
   });
 
    // Add CSS to the body

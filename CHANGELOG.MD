@@ -1,3 +1,7 @@
+# 1.2.3
+[Bugfix]
+* On install, the data was loading `undefined` values
+
 # 1.2.2
 [Misc]
 * Add icons for the extension
