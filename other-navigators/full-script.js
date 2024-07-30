@@ -1,12 +1,18 @@
-loadData();
-// General data
-let defaultTag;
+// ==UserScript==
+// @name         MR Formatter for Slack
+// @namespace    https://sebastien-os.fr/
+// @version      1.3.0
+// @description  Format your Gitlab MR
+// @author       Sébastien K
+// @match        https://gitlab.dev.cit.io/*/*
+// @grant        none
+// @require      https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js
+// @require      https://kit.fontawesome.com/7fda0d9f53.js
+// ==/UserScript==
 
-async function loadData() {
-  await chrome.storage.local.get(["default_tag"]).then((data) => {
-    defaultTag = data.default_tag;
-    if (["undefined", undefined].includes(defaultTag)) defaultTag = "@front-reviewer";
-  });
+(function () {
+  "use strict";
+  let defaultTag = "@front-reviewer";
 
   // Get the project name
   let url = window.location.href;
@@ -16,6 +22,8 @@ async function loadData() {
     return char.toUpperCase();
   });
 
+  // General data
+  let emoji = "✨";
   // Add CSS to the body
   $("body").append(
     "<style>.mr-link{cursor:pointer;position:relative;top:-2px;font-size:16px;}.mr-link:hover{opacity:0.7;}.mr-link-text{animation: fadeIn 0.2s;box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);border-radius:4px;position:relative;top:-20px;background-color:white;padding:10px 20px;z-index: 999999;margin:auto;width: fit-content;}</style>"
@@ -29,8 +37,6 @@ async function loadData() {
 
   // Handle on click
   $(document).on("click", ".mr-link", function () {
-    let emoji = "✨";
-
     // Title of the MR
     const title = $("[data-qa-selector='title_content']").text().replaceAll("\n", "").replaceAll("\r", "");
 
@@ -82,4 +88,4 @@ async function loadData() {
       $(".mr-link-text").css("display", "none");
     }, 2000);
   });
-}
+})();
