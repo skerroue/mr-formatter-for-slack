@@ -1,3 +1,9 @@
+# 1.3.1
+
+[Bugfix]
+
+- Fix emoji bug
+
 # 1.3.0
 
 [Feat]

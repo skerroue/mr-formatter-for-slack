@@ -38,7 +38,7 @@ async function loadData() {
     let slackMessage = emoji + " *Nouvelle MR* : " + title + "\n";
 
     // Add project
-    slackMessage += ":roue_dentée: *Projet :* " + formattedProjectName + "\n";
+    slackMessage += ":gear: *Projet* : " + formattedProjectName + "\n";
 
     // Get asana links
     const asanaUrls = [];

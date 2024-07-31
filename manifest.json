@@ -1,6 +1,6 @@
 {
   "name": "MR Formatter for Slack",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Generate the MR link for Slack",
   "manifest_version": 3,
   "background": {

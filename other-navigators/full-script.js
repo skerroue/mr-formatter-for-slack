@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MR Formatter for Slack
 // @namespace    https://sebastien-os.fr/
-// @version      1.3.0
+// @version      1.3.1
 // @description  Format your Gitlab MR
 // @author       Sébastien K
 // @match        https://gitlab.dev.cit.io/*/*
@@ -44,7 +44,7 @@
     let slackMessage = emoji + " *Nouvelle MR* : " + title + "\n";
 
     // Add project
-    slackMessage += ":roue_dentée: *Projet :* " + formattedProjectName + "\n";
+    slackMessage += ":gear: *Projet* : " + formattedProjectName + "\n";
 
     // Get asana links
     const asanaUrls = [];
