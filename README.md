@@ -5,7 +5,7 @@ Generate the MR link for Slack
 ## Prerequisites
 
 To use this extension correctly, please go to your Slack settings :
-`Preferences` > `Advanced` and uncheck `Format messages with tags`.
+`Preferences` > `Advanced` and check `Format messages with tags`.
 
 ## How to install
 
