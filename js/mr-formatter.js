@@ -21,18 +21,20 @@ async function loadData() {
     "<style>.mr-link{cursor:pointer;position:relative;top:-2px;font-size:16px;}.mr-link:hover{opacity:0.7;}.mr-link-text{animation: fadeIn 0.2s;box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);border-radius:4px;position:relative;top:-20px;background-color:white;padding:10px 20px;z-index: 999999;margin:auto;width: fit-content;}</style>"
   );
 
-  // Add elements to the page (button & text)
-  $("[data-qa-selector='title_content']").append('<i class="fa-brands fa-slack mr-link"></i>');
-  $("body").prepend(
-    '<div style="position:fixed;width:100%;z-index:9999;"><p class="mr-link-text" style="display:none;">MR copiée dans le presse papier <span style="margin-left:4px;">🎉</span></p></div>'
-  );
+  if (url.includes("merge_requests")) {
+    // Add elements to the page (button & text)
+    $(".gl-heading-1").append('<i class="fa-brands fa-slack mr-link"></i>');
+    $("body").prepend(
+      '<div style="position:fixed;width:100%;z-index:9999;top:30px;"><p class="mr-link-text" style="display:none;">MR copiée dans le presse papier <span style="margin-left:4px;">🎉</span></p></div>'
+    );
+  }
 
   // Handle on click
   $(document).on("click", ".mr-link", function () {
     let emoji = "✨";
 
     // Title of the MR
-    const title = $("[data-qa-selector='title_content']").text().replaceAll("\n", "").replaceAll("\r", "");
+    const title = $(".gl-heading-1").text().replaceAll("\n", "").replaceAll("\r", "");
 
     // Slack Message
     let slackMessage = emoji + " *Nouvelle MR* : " + title + "\n";
@@ -42,7 +44,7 @@ async function loadData() {
 
     // Get asana links
     const asanaUrls = [];
-    $("[data-qa-selector='description_content']")
+    $(".description")
       .find("a")
       .each(function () {
         // Only keep URLs from Asana
